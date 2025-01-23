@@ -12,7 +12,7 @@ DPOLL  LDI     R1, DSR
 
        BRnzp   NEXT_TASK
        
-NEXT_TASk HALT
+NEXT_TASK HALT
 
 KBSR   .FILL   xFE00
 KBDR   .FILL   xFE02
