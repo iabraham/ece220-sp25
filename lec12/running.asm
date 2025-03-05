@@ -25,7 +25,7 @@ MAIN
         STR R0, R5, #-1 ;save return value to answer
         ADD R6, R6, #1  ;pop return value from stack
         ADD R6, R6, #1  ;pop argument from stack
-        HALT
+ATHALT  HALT
 NUMBER  .FILL   x0005
 RSTACK  .FILL   x4000
 
