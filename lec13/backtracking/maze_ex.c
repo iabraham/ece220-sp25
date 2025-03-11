@@ -1,6 +1,13 @@
 #include <stdio.h>
 
+#define MAZE_HEIGHT 8
+#define MAZE_WIDTH  8
+
+
 int ExitMaze(char maze[MAZE_HEIGHT][MAZE_WIDTH], int xpos, int ypos){ 
+
+  // Delineate/handle all the basic cases 
+  
   if (xpos < 0 || xpos >= MAZE_HEIGHT || ypos < 0 || ypos >= MAZE_WIDTH) 
     return 0; 
 
@@ -10,8 +17,11 @@ int ExitMaze(char maze[MAZE_HEIGHT][MAZE_WIDTH], int xpos, int ypos){
   if (maze[xpos][ypos] != ' ')        // Space is not empty (possibly X or V)
     return 0; 
 
+  // Take an action 
   maze[xpos][ypos]='V';               // Mark this space as visited
 
+  // Explore choices 
+  
   // Go Down 
   if (ExitMaze(maze, xpos + 1, ypos)) { 
     maze[xpos][ypos]='P';
@@ -51,8 +61,20 @@ void print_maze(char maze[MAZE_HEIGHT][MAZE_WIDTH]){
 }
 
 int main(){
+  char maze[MAZE_HEIGHT][MAZE_WIDTH]={{" X  X X"},
+                                      {" X  X  "},
+                                      {"    XXX"},
+                                      {" X     "},
+                                      {" XXXX  "},
+                                      {"X  EX  "},
+                                      {"XX XX X"},
+                                      {"      X"}};
   print_maze(maze);
-  ExitMaze(maze, 0, 0);
+  if (ExitMaze(maze, 1, 7)){
   print_maze(maze);
+  }
+  else{
+    printf("No path to exit!\n");
+  }
   return 0;
 }

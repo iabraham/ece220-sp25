@@ -20,10 +20,12 @@ int main(){
   printf("Enter total length: ");
   scanf("%d", &total);
   found = solve(solution, 0, total);
-  if (found)
+  if (found){
 	  for (int i=0; i<N; i++)
       printf("%d\t ", solution[i]);
-  else
+  }
+  else{
     printf("No solution exists");
+  }
 }
 
