@@ -34,7 +34,16 @@ void add_at_head(node **cursor, node *new){
 }
 
 // Function to insert node (Slide 28)
-
+void insert(node **cursor, node *new){
+  if ((*cursor == NULL) || 
+      (*cursor)->byear>=new->byear){
+    add_at_head(cursor, new);
+    return;
+  }
+  else{
+    insert(&(*cursor)->next, new);
+  }
+}
 
 
 // Function to delete a node  (Slide 29)
@@ -54,19 +63,19 @@ int main(void){
     insert(&headptr, &temp);
   }
   print_list(headptr);
-  printf("-------------------\n");
-  delete_node(&headptr, "Mary");
-  print_list(headptr);
-
-  printf("-------------------\n");
-  int i=0;
-  while(headptr){
-    if(delete_node(&headptr, names[i])==0)
-      printf("Removed %s\n", names[i]);
-    else
-      printf("Didn't find %s\n", names[i]);
-    i++;
-  }
+//  printf("-------------------\n");
+//  delete_node(&headptr, "Mary");
+//  print_list(headptr);
+//
+//  printf("-------------------\n");
+//  int i=0;
+//  while(headptr){
+//    if(delete_node(&headptr, names[i])==0)
+//      printf("Removed %s\n", names[i]);
+//    else
+//      printf("Didn't find %s\n", names[i]);
+//    i++;
+//  }
 }
 
 
