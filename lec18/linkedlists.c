@@ -86,15 +86,21 @@ void insert(node **cursor, node *new){
 }
 
 void print_list(node *cursor){
-  if (cursor==NULL)
+  if (cursor==NULL){
     /* List empty; do nothing */ 
-    return;
+    printf("NULL\n");
+  }
   else{
     /* Print and recurse */ 
-    printf("%s was born in %d\n", 
+    printf("(%s, %d) -> ", 
            cursor->name, 
            cursor->byear);
     print_list(cursor->next);
   }
+}
+
+void destroy(node **headptr){
+
+  // PLEASE IMPLEMENT
 }
 

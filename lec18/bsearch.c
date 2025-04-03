@@ -1,10 +1,52 @@
 #include "linkedlists.c"
 
 node * middle(node *start, node *last){
+
+  // List is empty 
+  if (start==NULL)
+    return NULL;
+
+  node *slow = start; 
+  node *fast = start->next; 
+
+  while (fast != last){
+    fast = fast->next;
+    if (fast != last){
+      slow = slow ->next;
+      fast = fast->next;
+    }
+  }
+
+  return slow;
 }
 
 
 node * binary_search(node *cursor, unsigned int year){
+  /* This function calls middle */ 
+  node *start, *end; 
+  start = cursor; 
+  end = NULL;
+
+  do{
+  node *mid = middle(start, end);
+  if (mid==NULL){
+
+    // Kept going right or list is empty
+    return NULL;
+  }
+  if (mid->byear == year)
+    return mid; 
+  else if (mid->byear < year){
+    // Need to go right 
+    start = mid->next; 
+  }
+  else{
+    // Need to go left 
+    end = mid; 
+  }
+  }while(end==NULL || end!=start);
+
+  return NULL;
 }
 
 

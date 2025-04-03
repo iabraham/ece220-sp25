@@ -2,9 +2,21 @@
 
 
 node * pop(node **stacktop){
+  if (*stacktop==NULL){
+    return NULL;
+  }
+  else{
+    node *popped = (node *) malloc(sizeof(node));
+    popped->name = (*stacktop)->name;
+    popped->byear = (*stacktop)->byear;
+    popped->next = NULL;
+    del_head(stacktop);
+    return popped;
+  }
 }
 
 void push(node **cursor, node *new){
+  add_at_head(cursor, new);
 }
 
 
@@ -28,5 +40,7 @@ int main(void){
   printf("We popped %s\n", popped->name);
   printf("--------------\n");
   print_list(stacktop);
+
+  // Call destroy to prevent memory leaks
 
 }

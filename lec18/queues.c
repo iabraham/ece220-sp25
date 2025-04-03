@@ -2,10 +2,22 @@
 
 
 void enqueue(node **cursor, node *new){
+  add_at_tail(cursor, new);
 }
 
 
 node *dequeue(node **headptr){
+  if (*headptr==NULL){
+    return NULL;
+  }
+  else{
+    node *dqueued = (node *) malloc(sizeof(node));
+    dqueued->name = (*headptr)->name;
+    dqueued->byear = (*headptr)->byear;
+    dqueued->next = NULL;
+    del_head(headptr);
+    return dqueued;
+  }
 }
 
 node *front = NULL;
@@ -30,4 +42,5 @@ int main(void){
   printf("--------------\n");
   print_list(front);
 
+  // Call destroy to prevent memory leaks
 }
