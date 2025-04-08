@@ -42,4 +42,5 @@ void print_list(node *cursor){
     }
 }
 ```
-You should compare the differences between the two files fin terms of callee build up and tear down. 
+You should compare the differences between the two files in terms of callee
+build up and tear down. 
