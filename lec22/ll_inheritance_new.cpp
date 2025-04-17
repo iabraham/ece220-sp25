@@ -2,7 +2,7 @@
 using namespace std;
 
 /*Same class definition from before for Person; 
- * we only add a copy constructor.
+ * we only add a copy constructor AND A FRIEND FUNCTION!
  */
 class Person{
   const char *name; 
@@ -28,12 +28,15 @@ public:
 //  void print(){
 //    cout<<"("<<this->name<< ", "<<this->byear<<")";
 //  }
-  //
+//
+
+  // NEW FUNCTION!!!
   friend ostream& operator<<(ostream& os, const Person& p){
   os << "(" <<p.name <<", "<<p.byear<<")";
   return os;
   }
 
+  // CHANGED!!
   void print(){
     cout<<(*this);
   }
@@ -105,6 +108,7 @@ class LinkedList{
 class Stack:protected LinkedList{
   public:
   void push(Person &p){
+    // NOW WE CAN DO THIS! 
     cout<<"Pushing: " <<p<<endl;
     add_at_head(p);
   }
