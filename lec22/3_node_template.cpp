@@ -1,6 +1,6 @@
 #include <iostream>
 
-// You need to make "node.h" from 2_template_ll.cpp
+// You need to make "node.h" based on 2_template_ll.cpp
 #include "node.h"
 
 using namespace std;
@@ -42,6 +42,7 @@ int main(){
   const char *names_reps[] = {"Reagan", "Bush", "Trump", "Nixon"};
   unsigned int years_reps[] = {1911, 1946, 1946, 1913};
 
+  // A proper node.h file will remove error from below line
   LinkedList<Person> PrezList;
 
   for (int i=0; i<4; i++){
