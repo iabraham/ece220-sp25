@@ -14,6 +14,6 @@ T2 Add(T1 a, T2 b){
 int main(){
   cout<<Add(1, 3)<<endl; // Integers
   cout<<Add(1.2, 3.5)<<endl; // Doubles 
-  cout<<Add(1.2, 3.5f)<<endl; // Doubles 
+  cout<<Add(1.2, 3.5f)<<endl; // Mixed 
 //   cout<<Add(2, 'C')<<endl;
 }
