@@ -29,6 +29,11 @@ int main(){
   cout<<endl<<"Vectorized in order this is:"<<endl;
   for (auto it= v.begin(); it != v.end(); ++it)
   	  cout<<*it<<", ";
+
+  cout<<endl;
+  cout<<"0 lives at address: "<<tree1.search('0')<<endl;
   return 0;
-  }
+
+
+}
 
