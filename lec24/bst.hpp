@@ -124,10 +124,10 @@ public:
       inorder(root);
   }
 
-  vector<N> vectorize(){
+  vector<N> *vectorize(){
     vector<N> *v = new vector<N>;
     vectorize(root, *v);
-    return *v;
+    return v;
   }
 
   int node_count(){
