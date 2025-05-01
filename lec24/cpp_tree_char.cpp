@@ -25,15 +25,16 @@ int main(){
   tree1.print();
   cout<<"The tree height is: "<<tree1.height();
 
-  vector <char> v = tree1.vectorize();
+  vector <char> *v = tree1.vectorize();
   cout<<endl<<"Vectorized in order this is:"<<endl;
-  for (auto it= v.begin(); it != v.end(); ++it)
+  for (auto it= v->begin(); it != v->end(); ++it)
   	  cout<<*it<<", ";
 
   cout<<endl;
   cout<<"0 lives at address: "<<tree1.search('0')<<endl;
+
+  delete v;
+
   return 0;
-
-
 }
 

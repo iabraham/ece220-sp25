@@ -56,11 +56,12 @@ int main(){
   tree1.print();
   cout<<"The tree height is: "<<tree1.height();
 
-  vector <Person> v = tree1.vectorize();
+  vector <Person> *v = tree1.vectorize();
   cout<<endl<<"Vectorized in order this is:"<<endl;
-  for (auto it= v.begin(); it != v.end(); ++it)
+  for (auto it= v->begin(); it != v->end(); ++it)
   	  cout<<*it<<", ";
 
+  delete v;
   return 0;
   }
 
