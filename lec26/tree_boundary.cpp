@@ -27,16 +27,31 @@ void tree_print(node *cursor, int depth){
 
 
 void print_left_boundary(node *nd){
-	// FILL IN CODE
+  if (nd==NULL)
+    return;
+  if (nd->left || nd->right)
+    cout << nd->data <<", ";
+  node *st = nd->left ? nd->left : nd->right;
+  print_left_boundary(st);
  }
 
 
 void print_leaves(node *cursor){
-	// FILL IN CODE
+  if (cursor==NULL)
+    return;
+  print_leaves(cursor->left);
+  if (cursor->left==NULL && cursor->right==NULL)
+    cout<<cursor->data<<", ";
+  print_leaves(cursor->right);
 }
 
 void print_right_boundary(node *nd){
-	// FILL IN CODE
+  if (nd==NULL)
+    return;
+  node *st = nd->right ? nd->right : nd->left;
+  print_right_boundary(st);
+  if (nd->left || nd->right)
+    cout << nd->data <<", ";
 }
 
 void print_boundary(node *cursor){
@@ -46,9 +61,17 @@ void print_boundary(node *cursor){
 
   cout<<cursor->data<<" ";
 
-	// FILL IN CODE
+	// Print the left boundary
+    print_left_boundary(cursor->left);
 
+    // Print all leaf nodes
+    print_leaves(cursor->left);
+    print_leaves(cursor->right);
+
+    // Print the right boundary 
+    print_right_boundary(cursor->right);
 }
+
 
 int main(){
   node *left, *right; 
@@ -62,8 +85,6 @@ int main(){
   left = new node(2, left, NULL);
   node *root = new node(3, left, right);
   tree_print(root, 0);
-
   print_boundary(root);
-
 }
 

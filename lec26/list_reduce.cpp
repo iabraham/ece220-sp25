@@ -18,13 +18,18 @@ void print_list(node *cursor){
 }
 
 node * reduce_list(node *cursor){
-
-  // FILL IN CODE 
+  node *new_list = NULL;
+  while (cursor){
+    if (cursor->data%2==1)
+      new_list = new node(cursor->data, new_list);
+    cursor=cursor->next;
+  }
+  return new_list;
 }
 
 int main(){
   node *temp = NULL;
-  int vect[] = { 9, 8, 7, 5, 2, 3, 5, 2 };
+  int vect[] = {9, 8, 7, 5, 2, 3, 5, 2 };
   for (int i=0; i<8; i++)
 	  temp = new node(vect[i], temp); 
   node *full_list = new node(1, temp);
