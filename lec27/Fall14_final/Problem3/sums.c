@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "vector.h"
 #include "tree.h"
 
@@ -27,13 +28,31 @@ int main(int argc, char * argv[])
 
 // Recursive helper function for printing paths within a tree
 // that add up to an expected sum
-void findPathRecursive(node * root, int expectedSum, int currentSum, vector * path)
-{
-    // YOUR CODE HERE
+void findPathRecursive(node * root, int expectedSum, int currentSum, vector * path){
+  if (root==NULL)
+    return; 
+
+  currentSum += root->value; 
+  pushBack(path, root->value);
+  
+  if(currentSum == expectedSum && root->left==NULL && root->right==NULL){
+    for(int i=0; i<=path->back; i++)
+        printf("%d ", path->contents[i]);
+    printf("\n");
+  }
+  else{
+    findPathRecursive(root->left, expectedSum, currentSum, path);
+    findPathRecursive(root->right, expectedSum, currentSum, path);
+  }
+  popBack(path);
 }
 
 // Finds and prints all paths within a tree that add to an expected sum
-void findPath(node * root, int expectedSum)
-{
-    // YOUR CODE HERE
+void findPath(node * root, int expectedSum){
+  if (root==NULL)
+    return;
+  vector *path = (vector *) malloc(sizeof(vector));
+  vectorInit(path);
+  findPathRecursive(root, expectedSum, 0, path);
+  free(path);
 }

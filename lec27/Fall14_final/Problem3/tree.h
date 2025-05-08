@@ -6,11 +6,11 @@
 *  left - a pointer to the left node
 *  right - a pointer to the right node
 */
-struct node {
+typedef struct node {
     int value;
-    node * left;
-    node * right;
-};
+    struct node * left;
+    struct node * right;
+}node;
 
 // Given the root of a tree deletes it, freeing memory
 void delete_tree(node * root);

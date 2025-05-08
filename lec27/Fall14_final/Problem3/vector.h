@@ -6,10 +6,10 @@
 *  contents - the contents of the vector up to MAXSIZE elements
 *  back - the current index of the back of the vector
 */
-struct vector {
+typedef struct vector {
     int contents[MAXSIZE];
     int back;
-};
+}vector;
 
 // Initializes a vector structure
 void vectorInit(vector * inVector);

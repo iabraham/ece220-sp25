@@ -4,11 +4,11 @@
 #include "tree.h"
 #define MAXSIZE 500
 
-struct queue {
-    node * contents[MAXSIZE];
+typedef struct queue {
+    struct node * contents[MAXSIZE];
     int head;
     int tail;
-};
+} queue;
 
 void initQueue(queue * inQueue);
 
